@@ -1,0 +1,12 @@
+<h1> <%= @report.student_id %> </h1>
+
+<p>What was covered: <br> <%= @report.what_was_covered%>  <br><br>Performance: <br> <%= @report.performance%> <br><br> Assignment: <br> <%= @report.assignment %><br><br>
+
+<%= link_to "Back to today's Report list", reports_path %> <br> <br>
+<%= link_to "Edit this report", edit_report_path(@report) %>
+<br> <br>
+<%= link_to "Delete this report", report_path, method: :delete, data: {confirm: "Are you sure you want to delete this report?"} %> 
+
+<br> <br>
+
+<%= link_to "Create a new report", new_report_path %>

@@ -1,0 +1,15 @@
+<h1>Today's Reports<h1>
+
+<ol>
+	
+	<% @reports.each do |report| %>
+		<li>
+			Student ID #<%= report.student_id %> 
+			<%= link_to "Access full report", report_path(report) %>
+		</li>
+	<% end %>
+</ol>
+
+<%= link_to "Create a new report", new_report_path %>
+
+<!-- need to figure out how to have this page show only today's reports -->
