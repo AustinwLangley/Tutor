@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+root "reports#index"
 get "reports/" => "reports#index"
 get "reports/new" => "reports#new", as: :new_report
 get "reports/:id" => "reports#show", as: :report

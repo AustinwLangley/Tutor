@@ -15,12 +15,16 @@ class ReportsController < ApplicationController
 	def create
 		@report = Report.new(report_params)
 		
-		#if @report.save
-			#redirect_to reports_path #need to be able to give a message saying report saved.  
-		#else
+		# if @report.save
+		# flash[:notice] = 'New report created.'
+  #   # redirect_to(:action => 'index')
+
+		# #if @report.save
+		# 	#redirect_to reports_path #need to be able to give a message saying report saved.  
+		# else
 			@report.save
 			render :new
-		#end
+		# end
 	end
 
 	def edit
