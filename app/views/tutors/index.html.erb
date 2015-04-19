@@ -1,0 +1,9 @@
+<h1>Tutors</h1>
+<p>Current Tutor: <%= current_tutor.name %></p>
+	<ul>
+		<% @tutors.each do |tutor| %> 
+		<li><%= tutor.name %></li>
+	<% end %>
+	</ul>
+
+	<%= link_to "Log Out", logout_path, method: :delete %>

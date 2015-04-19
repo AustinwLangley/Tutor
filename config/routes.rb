@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+#report routes
 root "reports#index"
 get "reports/" => "reports#index"
 get "reports/new" => "reports#new", as: :new_report
@@ -8,6 +9,17 @@ post "reports/" => "reports#create"
 get "reports/:id/edit" => "reports#edit", as: :edit_report
 patch "reports/:id" => "reports#update"
 delete "reports/:id" => "reports#destroy"
+
+
+#tutor routes
+get "tutors" => "tutors#index"
+post "tutors" => "tutors#create"
+get "signup" => "tutors#new"
+
+#login routes
+get "/login" => "sessions#new"
+post "/login" => "sessions#create"
+delete "/logout" => "sessions#destroy"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
