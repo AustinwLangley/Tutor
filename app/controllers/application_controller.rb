@@ -7,7 +7,7 @@ helper_method :current_tutor
 
 private
 def current_tutor
-	@current_tutor ||=Tutor.find(session[:user_id]) if session[:user_id]
+	@current_tutor ||=Tutor.find(session[:tutor_id]) if session[:tutor_id]
 end
 
 end

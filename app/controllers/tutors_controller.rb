@@ -20,6 +20,6 @@ class TutorsController < ApplicationController
 private
 
 	def tutor_params
-		params.require(:user).permit(:name, :email, :password)
+		params.require(:tutor).permit(:name, :email, :password)
 	end
 end #end of controller
