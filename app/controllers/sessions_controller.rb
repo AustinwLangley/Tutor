@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 		tutor = Tutor.where(email: params[:login][:email]).first
 		if tutor && tutor.authenticate(params[:login][:password])
 			session[:tutor_id] = tutor.id.to_s
-			redirect_to tutors_path
+			redirect_to new_report_path
 		else
 			redirect_to login_path
 		end
