@@ -1,21 +1,29 @@
-<div class="container-fluid">
+<% if logged_in? %>	
 
-<div class="jumbotron">
-<div class="masthead">
-	<h1>Today's Reports<h1>
-</div>
-<!-- <img src="assets/logo_4NF.jpg" alt="Responsive image" class="img-rounded"> -->
-<%= image_tag "logo_4NF.jpg" %>
-<ol>
-	<% @reports.each do |report| %>
-		<li>
-			Student ID #<%= report.student_id %> 
-			<%= link_to "Access full report", report_path(report) %>
-		</li>
-	<% end %>
-</ol>
-</div>
-<%= link_to "Create a new report", new_report_path %>
+	<div class="container-fluid">
 
-<!-- need to figure out how to have this page show only today's reports -->
-</div>
+	<div class="jumbotron">
+	<div class="masthead">
+		<h1>Your Reports:<h1>
+	</div>
+	<!-- <img src="assets/logo_4NF.jpg" alt="Responsive image" class="img-rounded"> -->
+	<%= image_tag "logo_4NF.jpg" %>
+	<ol>
+		<% @reports.each do |report| %>
+			<li>
+				Student ID #<%= report.student_id %> 
+				<%= link_to "Access full report", report_path(report) %>
+			</li>
+		<% end %>
+	</ol>
+	</div>
+	<%= link_to "Create a new report", new_report_path %>
+
+	<!-- need to figure out how to have this page show only today's reports -->
+	</div>
+	Logged in as: <%= current_tutor.name %> <br><br> <%= link_to 'Log Out', logout_path, method: :delete %>
+
+	<% else %>
+	 <h1>You are not logged in.  Please log in to access this page.</h1>
+  <%= link_to 'Log In', login_path %>
+<% end %>

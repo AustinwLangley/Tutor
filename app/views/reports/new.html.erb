@@ -1,34 +1,52 @@
-<h1>Add a new report</h1>
+<% if logged_in? %>
+  
+  <h1>Add a new report</h1>
 
-<%= form_for @report do |f| %>
+    <%= form_for @report do |f| %>
+      <div>
+          <%= f.label :student_id %>
+          <%= f.text_field :student_id %>
+      </div>
 
-    <div>
-        <%= f.label :student_id %>
-        <%= f.text_field :student_id %>
-    </div>
+      <div>
+          <%= f.label :teacher_id %>
+          <%= f.text_field :teacher_id %>
+      </div>
 
-    <div>
-        <%= f.label :teacher_id %>
-        <%= f.text_field :teacher_id %>
-    </div>
+      <div>
+          <%= f.label :what_was_covered %>
+          <%= f.text_area :what_was_covered %>
+      </div>
 
-    <div>
-        <%= f.label :what_was_covered %>
-        <%= f.text_area :what_was_covered %>
-    </div>
+      <div>
+          <%= f.label :performance %>
+          <%= f.text_area :performance %>
+      </div>
 
-    <div>
-        <%= f.label :performance %>
-        <%= f.text_area :performance %>
-    </div>
-
-    <div>
-        <%= f.label :assignment %>
-        <%= f.text_area :assignment %>
-    </div>
-    <br>
+      <div>
+          <%= f.label :assignment %>
+          <%= f.text_area :assignment %>
+      </div>
+      <br>
     <%= f.submit "Add new report" %>
 
+    <% end %>
+    <br>
+    <%= link_to "Go to your reports", reports_path %>
+    <br>
+    <br>
+    
+    Logged in as: <%= current_tutor.name %> <br><br> <%= link_to 'Log Out', logout_path, method: :delete %>
+
+<% else %>
+  <h1>You are not logged in.  Please log in to access this page.</h1>
+  <%= link_to 'Log In', login_path %>
 <% end %>
-<br>
-<%= link_to "Back to today's reports", reports_path %>
+
+
+
+
+
+
+
+

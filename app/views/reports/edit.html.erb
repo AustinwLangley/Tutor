@@ -1,34 +1,46 @@
-<h1>Edit a Report</h1>
+<% if logged_in? %>    
 
-<%= form_for @report do |f| %>
+    <h1>Edit a Report</h1>
 
-    <div>
-        <%= f.label :student_id %>
-        <%= f.text_field :student_id %>
-    </div>
+    <%= form_for @report do |f| %>
 
-    <div>
-        <%= f.label :teacher_id %>
-        <%= f.text_field :teacher_id %>
-    </div>
+        <div>
+            <%= f.label :student_id %>
+            <%= f.text_field :student_id %>
+        </div>
 
-    <div>
-        <%= f.label :what_was_covered %>
-        <%= f.text_area :what_was_covered %>
-    </div>
+        <div>
+            <%= f.label :teacher_id %>
+            <%= f.text_field :teacher_id %>
+        </div>
 
-    <div>
-        <%= f.label :performance %>
-        <%= f.text_area :performance %>
-    </div>
+        <div>
+            <%= f.label :what_was_covered %>
+            <%= f.text_area :what_was_covered %>
+        </div>
 
-    <div>
-        <%= f.label :assignment %>
-        <%= f.text_area :assignment %>
-    </div>
+        <div>
+            <%= f.label :performance %>
+            <%= f.text_area :performance %>
+        </div>
+
+        <div>
+            <%= f.label :assignment %>
+            <%= f.text_area :assignment %>
+        </div>
+        <br>
+        <%= f.submit "Submit these changes" %>
+
+    <% end %>
     <br>
-    <%= f.submit "Submit these changes" %>
+    <%= link_to "Back to your reports", reports_path %>
+    <br>
+  Logged in as: <%= current_tutor.name %> <br><br> <%= link_to 'Log Out', logout_path, method: :delete %>
 
-<% end %>
-<br>
-<%= link_to "Back to today's reports", reports_path %>
+<% else %>
+  <h1>You are not logged in.  Please log in to access this page.</h1>
+  <%= link_to 'Log In', login_path %>
+<% end %>   
+
+
+

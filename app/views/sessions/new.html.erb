@@ -12,12 +12,9 @@
 		<%= f.submit "Log In" %>
 	</div>
 
-<% if logged_in? %>
-  Logged in as: <%= current_tutor.name %> <%= link_to 'Log Out', logout_path, method: :delete %>
-<% else %>
-  <%= link_to 'Log In', login_path %>
+	<% if logged_in? %>
+	  Logged in as: <%= current_tutor.name %> <%= link_to 'Log Out', logout_path, method: :delete %>
+	<% end %>
+
 <% end %>
 
-
-	
-<% end %>

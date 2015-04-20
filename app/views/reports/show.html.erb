@@ -1,12 +1,21 @@
-<h1> <%= @report.student_id %> </h1>
+<% if logged_in? %>
+	<h1> <%= @report.student_id %> </h1>
 
-<p>What was covered: <br> <%= @report.what_was_covered%>  <br><br>Performance: <br> <%= @report.performance%> <br><br> Assignment: <br> <%= @report.assignment %><br><br>
+	<p>What was covered: <br> <%= @report.what_was_covered%>  <br><br>Performance: <br> <%= @report.performance%> <br><br> Assignment: <br> <%= @report.assignment %><br><br>
 
-<%= link_to "Back to today's Report list", reports_path %> <br> <br>
-<%= link_to "Edit this report", edit_report_path(@report) %>
-<br> <br>
-<%= link_to "Delete this report", report_path, method: :delete, data: {confirm: "Are you sure you want to delete this report?"} %> 
+	<%= link_to "Back to today's Report list", reports_path %> <br> <br>
+	<%= link_to "Edit this report", edit_report_path(@report) %>
+	<br> <br>
+	<%= link_to "Delete this report", report_path, method: :delete, data: {confirm: "Are you sure you want to delete this report?"} %> 
 
-<br> <br>
+	<br> 
+	<br>
 
-<%= link_to "Create a new report", new_report_path %>
+	<%= link_to "Create a new report", new_report_path %>
+	<br>
+	Logged in as: <%= current_tutor.name %> <br><br> <%= link_to 'Log Out', logout_path, method: :delete %>
+
+	<% else %>
+	  <h1>You are not logged in.  Please log in to access this page.</h1>
+	  <%= link_to 'Log In', login_path %>
+<% end %>
